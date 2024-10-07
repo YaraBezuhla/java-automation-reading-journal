@@ -1,10 +1,8 @@
 package journal.reading.automation.settings;
 
-import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.junit.jupiter.api.*;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.*;
+import org.testng.annotations.*;
 
 public class LaunchSettings {
 
@@ -19,13 +17,13 @@ public class LaunchSettings {
 
     WebDriver driver = new ChromeDriver(configChromeOptions());
 
-    @BeforeEach
+    @BeforeMethod
     public void setup() {
     //    driver.manage().window().maximize();
         driver.get("http://localhost:8081/");
     }
 
-    @AfterEach
+    @AfterMethod
     public void tearDown() {
         driver.quit();
     }
