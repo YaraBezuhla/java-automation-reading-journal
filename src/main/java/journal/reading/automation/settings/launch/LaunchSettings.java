@@ -1,10 +1,10 @@
-package journal.reading.automation.settings;
+package journal.reading.automation.settings.launch;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
-public class LaunchSettings {
+public class LaunchSettings{
 
     ChromeOptions chromeOptions = new ChromeOptions();
     public ChromeOptions configChromeOptions(){
@@ -15,7 +15,7 @@ public class LaunchSettings {
         return chromeOptions;
     }
 
-    WebDriver driver = new ChromeDriver(configChromeOptions());
+    public WebDriver driver = new ChromeDriver(configChromeOptions());
 
     @BeforeMethod
     public void setup() {
