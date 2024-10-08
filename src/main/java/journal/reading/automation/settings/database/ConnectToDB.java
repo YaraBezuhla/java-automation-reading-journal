@@ -1,0 +1,16 @@
+package journal.reading.automation.settings.database;
+
+import com.mongodb.client.*;
+import org.bson.Document;
+
+public class ConnectToDB {
+    MongoClient mongoClient;
+    MongoDatabase database;
+
+    protected MongoCollection<Document> connectToMongoDB(String nameCollection){
+        mongoClient = MongoClients.create("mongodb://localhost:27017"); // Підключення до MongoDB
+        database = mongoClient.getDatabase("automationreadingjournal"); // Отримання об'єкта бази даних
+        MongoCollection<Document> collection = database.getCollection(nameCollection); // Отримання колекції
+        return collection;
+    }
+}
