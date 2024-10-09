@@ -9,9 +9,9 @@ import java.util.List;
 public class GetDateWithMongoDB {
 ConnectToDB connectToDB = new ConnectToDB();
 
-    private List<String> titles = new ArrayList<>();;
+    private ArrayList<String> titles = new ArrayList<>();;
 
-    public void loadTitlesFromDatabase() {
+    public ArrayList<String> loadTitlesFromDatabase() {
         MongoCollection<Document> booksCollection = connectToDB.connectToMongoDB("books");
 
         FindIterable<Document> iterable = booksCollection.find();  // Отримання всіх документів з колекції books
@@ -25,5 +25,6 @@ ConnectToDB connectToDB = new ConnectToDB();
         for (String title : titles) {
             System.out.println(title);
         }
+        return titles;
     }
 }

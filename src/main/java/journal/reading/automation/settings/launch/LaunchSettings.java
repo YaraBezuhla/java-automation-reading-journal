@@ -20,7 +20,7 @@ public class LaunchSettings{
     @BeforeMethod
     public void setup() {
     //    driver.manage().window().maximize();
-        driver.get("http://localhost:8081/");
+        driver.get(Sites.siteDomains.locale);
     }
 
     @AfterMethod
