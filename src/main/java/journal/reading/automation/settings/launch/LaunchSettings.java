@@ -4,7 +4,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
-public class LaunchSettings{
+@Listeners({ TestListener.class })
+public class LaunchSettings {
 
     ChromeOptions chromeOptions = new ChromeOptions();
     public ChromeOptions configChromeOptions(){
@@ -16,6 +17,10 @@ public class LaunchSettings{
     }
 
     public WebDriver driver = new ChromeDriver(configChromeOptions());
+
+    public WebDriver getDriver() {
+        return driver;
+    }
 
     @BeforeMethod
     public void setup() {

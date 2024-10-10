@@ -1,10 +1,13 @@
 package journal.reading.automation.settings.database;
 
+import io.qameta.allure.Step;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataManipulation {
 
+    @Step("Порівняти між собою масиви данниз з бази і з сайту")
     public void compareDataFromWebsiteAndDatabase(ArrayList<String> dbData, ArrayList<String> webData) {
         // Перевірка на повну відповідність
         boolean areEqual = dbData.stream().sorted().toList()
