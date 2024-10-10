@@ -1,7 +1,7 @@
 package journal.reading.automation.settings.database;
 
 import io.qameta.allure.Step;
-
+import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +12,8 @@ public class DataManipulation {
         // Перевірка на повну відповідність
         boolean areEqual = dbData.stream().sorted().toList()
                 .equals(webData.stream().sorted().toList());
-
-        if (areEqual) {
+        Assert.assertTrue(areEqual, "Данні не співпадають");
+/*        if (areEqual) {
             System.out.println("Lists are identical. All data from the database match those on the website.");
         } else {
             System.out.println("Lists are not identical.");
@@ -27,6 +27,6 @@ public class DataManipulation {
             List<String> missingInDatabase = webData.stream()
                     .filter(title -> !dbData.contains(title)).toList();
             System.out.println("Data on the website but missing in the database: " + missingInDatabase);
-        }
+        }*/
     }
 }
