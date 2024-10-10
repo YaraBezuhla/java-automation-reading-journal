@@ -19,7 +19,7 @@ ConnectToDB connectToDB = new ConnectToDB();
         for (Document doc : iterable) {
             String title = doc.getString("title");
             boolean top = doc.getBoolean("top");
-            if (title != null && top) {
+            if (title != null /*&& top*/) {
                 titles.add(title);
             }
         }

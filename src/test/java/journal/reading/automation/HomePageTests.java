@@ -8,19 +8,22 @@ import journal.reading.automation.pageObjects.HomePagePageObject;
 import journal.reading.automation.settings.database.DataManipulation;
 import journal.reading.automation.settings.database.GetDateWithMongoDB;
 import journal.reading.automation.settings.launch.LaunchSettings;
+import journal.reading.automation.settings.launch.TestListener;
 import org.testng.annotations.*;
 import java.util.ArrayList;
 
+@Listeners({ TestListener.class })
 @Feature("Home Page")
 public class HomePageTests extends LaunchSettings {
-    GetDateWithMongoDB getDateWithMongoDB = new GetDateWithMongoDB();
-    HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
-    DataManipulation dataManipulation = new DataManipulation();
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
     @Description("Порівняння книг, що є в базі і що виводяться на сайті по тайтлу")
     public void TitleBlockBooks() {
+        GetDateWithMongoDB getDateWithMongoDB = new GetDateWithMongoDB();
+        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
+        DataManipulation dataManipulation = new DataManipulation();
+
         ArrayList<String> dbTitles = getDateWithMongoDB.getBookTitlesFromDatabase();
         ArrayList<String> webTitles = homePagePageObject.getBookTitlesOnWebsite();
         dataManipulation.compareDataFromWebsiteAndDatabase(dbTitles,webTitles);
