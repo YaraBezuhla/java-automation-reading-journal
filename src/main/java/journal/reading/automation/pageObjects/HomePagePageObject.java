@@ -1,5 +1,6 @@
 package journal.reading.automation.pageObjects;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,6 +17,7 @@ public class HomePagePageObject {
     By booksName = By.xpath("//h3[@name]");
     By loadMoreButton = By.xpath("//div[@data-test='top-books']//button[@data-test='load-more-button']");
 
+    @Step("Отримати назви книг на головній сторінці сайту")
     public ArrayList<String> getBookTitlesOnWebsite(){
         ArrayList<String> titlesList = new ArrayList<>();
 

@@ -2,6 +2,7 @@ package journal.reading.automation.settings.database;
 
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
+import io.qameta.allure.Step;
 import org.bson.Document;
 import java.util.ArrayList;
 
@@ -10,6 +11,7 @@ ConnectToDB connectToDB = new ConnectToDB();
 
     private final ArrayList<String> titles = new ArrayList<>();
 
+    @Step("Отримати назви книг з бази данних")
     public ArrayList<String> getBookTitlesFromDatabase() {
         MongoCollection<Document> booksCollection = connectToDB.connectToMongoDB("books");
 
