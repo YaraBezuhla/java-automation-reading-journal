@@ -14,7 +14,8 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.25.0")
     implementation("org.mongodb:mongodb-driver-sync:5.2.0")
     implementation("io.qameta.allure:allure-testng:2.29.0")
-
+    implementation("io.rest-assured:rest-assured:5.5.0")
+    implementation("io.rest-assured:json-path:5.5.0")
 }
 
 /*tasks.test {
