@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.testng.Assert;
 
 public class HomePagePageObject {
     private final WebDriver driver;
@@ -42,4 +43,25 @@ public class HomePagePageObject {
         }
         return titlesList;
     }
+
+    By topBooksBlockTitle = By.xpath("//div[@data-test='top-books']/h2");
+    By topAuthorsBlockTitle = By.xpath("//div[@data-test='top-authors']/h2");
+
+    @Step("Отримати назву блоку з топовими книгами")
+    public String getTopBooksBlockTitle(){
+        WebElement booksBlockTitle = driver.findElement(topBooksBlockTitle);
+        return booksBlockTitle.getText();
+    }
+
+    @Step("Отримати назву блоку з топовими авторами")
+    public String getTopAuthorsBlockTitle(){
+        WebElement authorsBlockTitle = driver.findElement(topAuthorsBlockTitle);
+        return authorsBlockTitle.getText();
+    }
+
+    @Step("Перевірити назву блоку")
+    public void checkBlockTitle(String titleOnWebsite, String expectedTitle){
+        Assert.assertEquals(titleOnWebsite, expectedTitle, "Тайтл на сайті не співпадає з очікуваним тайтлом");
+    }
+
 }
