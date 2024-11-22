@@ -7,26 +7,32 @@ import java.util.List;
 
 public class DataManipulation {
 
-    @Step("Порівняти між собою масиви данниз з бази і з сайту")
+    @Step("Порівняти між собою масиви данних з бази і з сайту")
     public void compareDataFromWebsiteAndDatabase(ArrayList<String> dbData, ArrayList<String> webData) {
-        // Перевірка на повну відповідність
-        boolean areEqual = dbData.stream().sorted().toList()
-                .equals(webData.stream().sorted().toList());
-        Assert.assertTrue(areEqual, "Данні не співпадають");
-/*        if (areEqual) {
-            System.out.println("Lists are identical. All data from the database match those on the website.");
-        } else {
-            System.out.println("Lists are not identical.");
+        // Сортування масивів
+        List<String> sortedDbData = dbData.stream().sorted().toList();
+        List<String> sortedWebData = webData.stream().sorted().toList();
 
-            // Виведення данних, яких не вистачає на сайті
-            List<String> missingOnWebsite = dbData.stream()
-                    .filter(title -> !webData.contains(title)).toList();
-            System.out.println("Data in the database but missing on the website: " + missingOnWebsite);
+        // Перевірка на відповідність
+        if (!sortedDbData.equals(sortedWebData)) {
+            // Логіка перевірки розбіжностей
+            List<String> missingOnWebsite = sortedDbData.stream()
+                    .filter(title -> !sortedWebData.contains(title))
+                    .toList();
+            List<String> missingInDatabase = sortedWebData.stream()
+                    .filter(title -> !sortedDbData.contains(title))
+                    .toList();
 
-            // Виведення данних, яких не вистачає в базі даних
-            List<String> missingInDatabase = webData.stream()
-                    .filter(title -> !dbData.contains(title)).toList();
-            System.out.println("Data on the website but missing in the database: " + missingInDatabase);
-        }*/
+            // Формування повідомлення про помилку
+            StringBuilder errorMessage = new StringBuilder("Дані не співпадають:").append("\n");
+            if (!missingOnWebsite.isEmpty()) {
+                errorMessage.append("Дані є в базі даних, але відсутні на сайті: ").append(missingOnWebsite).append("\n");
+            }
+            if (!missingInDatabase.isEmpty()) {
+                errorMessage.append("Дані на сайті, але відсутні в базі даних: ").append(missingInDatabase).append("\n");
+            }
+
+            Assert.fail(errorMessage.toString());
+        }
     }
 }
