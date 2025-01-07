@@ -8,12 +8,10 @@ import journal.reading.automation.pageObjects.HomePagePageObject;
 import journal.reading.automation.settings.database.DataManipulation;
 import journal.reading.automation.settings.database.GetDateWithMongoDB;
 import journal.reading.automation.settings.launch.LaunchSettings;
-import journal.reading.automation.settings.launch.TestListener;
-import net.bytebuddy.build.Plugin;
 import org.testng.annotations.*;
 import java.util.ArrayList;
 
-@Listeners({ TestListener.class })
+@Listeners(journal.reading.automation.settings.launch.TestListener.class)
 @Feature("Home Page")
 public class HomePageTests extends LaunchSettings {
 
