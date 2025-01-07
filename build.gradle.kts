@@ -16,6 +16,8 @@ dependencies {
     implementation("io.qameta.allure:allure-testng:2.29.0")
     implementation("io.rest-assured:rest-assured:5.5.0")
     implementation("io.rest-assured:json-path:5.5.0")
+    implementation("commons-io:commons-io:2.18.0")
+
 }
 
 /*tasks.test {
