@@ -7,12 +7,12 @@ import io.qameta.allure.SeverityLevel;
 import journal.reading.automation.pageObjects.BookTitlesComponent;
 import journal.reading.automation.pageObjects.HomePagePageObject;
 import journal.reading.automation.settings.database.DataManipulation;
-import journal.reading.automation.settings.database.GetDateWithMongoDB;
+import journal.reading.automation.settings.database.GetDataWithMongoDB;
 import journal.reading.automation.settings.launch.LaunchSettings;
 import org.testng.annotations.*;
 import java.util.ArrayList;
 
-@Listeners(journal.reading.automation.settings.launch.TestListener.class)
+//@Listeners(journal.reading.automation.settings.launch.TestListener.class)
 @Feature("Home Page")
 public class HomePageTests extends LaunchSettings {
 
@@ -20,11 +20,11 @@ public class HomePageTests extends LaunchSettings {
     @Severity(SeverityLevel.BLOCKER)
     @Description("Порівняння книг, що є в базі і що виводяться на сайті по тайтлу")
     public void AssertBooks() {
-        GetDateWithMongoDB getDateWithMongoDB = new GetDateWithMongoDB();
+        GetDataWithMongoDB getDataWithMongoDB = new GetDataWithMongoDB();
         DataManipulation dataManipulation = new DataManipulation();
         BookTitlesComponent bookTitlesComponent = new BookTitlesComponent(driver);
 
-        ArrayList<String> dbTitles = getDateWithMongoDB.getBookTitlesFromDatabase();
+        ArrayList<String> dbTitles = getDataWithMongoDB.getBookTitlesFromDatabase();
         ArrayList<String> webTitles = bookTitlesComponent.getBookTitlesOnWebsite();
         dataManipulation.compareDataFromWebsiteAndDatabase(dbTitles,webTitles);
     }
