@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 
-public class GetDateWithMongoDB {
+public class GetDataWithMongoDB {
     ConnectToDB connectToDB = new ConnectToDB();
 
     private final ArrayList<String> titles = new ArrayList<>();
