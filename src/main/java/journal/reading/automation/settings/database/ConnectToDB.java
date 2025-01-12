@@ -7,7 +7,7 @@ public class ConnectToDB {
     MongoClient mongoClient;
     MongoDatabase database;
 
-    protected MongoCollection<Document> connectToMongoDB(String nameCollection){
+    public MongoCollection<Document> connectToMongoDB(String nameCollection){
         mongoClient = MongoClients.create("mongodb://localhost:27017"); // Підключення до MongoDB
         database = mongoClient.getDatabase("automationreadingjournal"); // Отримання об'єкта бази даних
         // Отримання колекції
