@@ -21,7 +21,7 @@ public class BookTitlesComponent {
     By booksName = By.xpath("//h3[@name]");
     By loadMoreButtonBooksBlock = By.xpath("//div[@data-test='top-books']//button[@data-test='load-more-button']");
 
-    @Step("Отримати назви книг на головній сторінці сайту")
+    @Step("Отримати назви книг")
     public ArrayList<String> getBookTitlesOnWebsite() {
         ArrayList<String> titlesList = new ArrayList<>();
 

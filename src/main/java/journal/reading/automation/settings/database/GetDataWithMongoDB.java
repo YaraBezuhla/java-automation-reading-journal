@@ -11,10 +11,9 @@ import java.util.ArrayList;
 public class GetDataWithMongoDB {
     ConnectToDB connectToDB = new ConnectToDB();
 
-    private final ArrayList<String> titles = new ArrayList<>();
-
     @Step("Отримати всі назви книг з бази данних")
     public ArrayList<String> getBookTitlesFromDatabase() {
+        ArrayList<String> titles = new ArrayList<>();
         MongoCollection<Document> booksCollection = connectToDB.connectToMongoDB("books");
 
         FindIterable<Document> iterable = booksCollection.find();  // Отримання всіх документів з колекції books

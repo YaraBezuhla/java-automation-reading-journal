@@ -6,8 +6,8 @@ import org.testng.annotations.Test;
 public class PreConditionsTests {
 
     @Test
-    public void deleteBooks(){
+    public void deleteBooksByTitle(){
         ApiMethods apiMethods = new ApiMethods();
-        apiMethods.deleteBookApi();
+        apiMethods.deleteBookApiByTitle();
     }
 }
