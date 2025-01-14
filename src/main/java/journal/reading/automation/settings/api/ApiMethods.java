@@ -5,7 +5,6 @@ import com.mongodb.client.model.Filters;
 import journal.reading.automation.settings.database.ConnectToDB;
 import org.bson.Document;
 import org.bson.types.ObjectId;
-
 import java.util.List;
 import java.util.Map;
 
@@ -42,7 +41,7 @@ public class ApiMethods {
         }
     }
 
-    public void deleteBookApi() {
+    public void deleteBookApiById() {
         try {
 
             // Завантаження JSON із файлу
@@ -71,11 +70,43 @@ public class ApiMethods {
                 // Отримати ObjectId книги
                 ObjectId bookId = bookDocument.getObjectId("_id");
 
-                 given().baseUri("http://localhost:5000/api")
+                given().baseUri("http://localhost:5000/api")
                         .header("Content-Type", "application/json")
                         .when().delete("/books/" + bookId)
                         .then().assertThat().statusCode(200)
                         .extract().response();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Помилка під час обробки JSON або виконання запиту");
+        }
+    }
+
+    public void deleteBookApiByTitle() {
+        try {
+
+            // Завантаження JSON із файлу
+            String json = JsonUtils.readJsonFromFile(BOOKS_JSON_FILE);
+
+            // Парсинг JSON до списку об'єктів
+            List<Map<String, Object>> books = JsonUtils.parseJsonToList(json);
+
+            for (Map<String, Object> book : books) {
+                String title = (String) book.get("title"); // Отримати назву книги
+                if (title == null || title.isEmpty()) {
+                    System.out.println("Книга без назви пропущена");
+                    continue;
+                }
+
+                try {
+                    given().baseUri("http://localhost:5000/api")
+                            .header("Content-Type", "application/json")
+                            .when().delete("/books/title/" + title)
+                            .then().assertThat().statusCode(200)
+                            .extract().response();
+                } catch (AssertionError e) {
+                   System.out.println("Книга \"" + title + "\" не знайдена в базі даних. Пропущено.");
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
