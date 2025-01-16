@@ -66,4 +66,12 @@ public class HomePagePageObject {
             }
         }
     }
+
+    By searchPage = By.xpath("//a[@data-test='search-link']");
+
+    @Step("Перейти на сторінку пошуку")
+    public void goToSearchPage() {
+        WebElement searchPageWE = driver.findElement(searchPage);
+        searchPageWE.click();
+    }
 }
