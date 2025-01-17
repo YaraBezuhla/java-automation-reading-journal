@@ -18,6 +18,6 @@ public class SearchPageTests extends LaunchSettings {
         searchPagePageObject.clickSearchInput();
         String titleForSearch = bookProcessor.getRandomTitle();
         searchPagePageObject.inputTextInSearchInput(titleForSearch);
-
+        searchPagePageObject.assertBookFound(titleForSearch);
     }
 }
