@@ -31,6 +31,7 @@ public class SearchPagePageObject {
     @Step("Перевірити, що книгу знайдено")
     public void assertBookFound(String book) {
         WebElement nameBookWE = driver.findElement(nameBook);
+        nameBookWE.isDisplayed();
         String title = nameBookWE.getText();
         Assert.assertEquals(book, title, "Назва книги не вірна");
     }
