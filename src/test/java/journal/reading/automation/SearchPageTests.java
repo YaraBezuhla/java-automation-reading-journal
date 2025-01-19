@@ -20,6 +20,20 @@ public class SearchPageTests extends LaunchSettings {
         searchPagePageObject.clickSearchInput();
         String titleForSearch = bookProcessor.getRandomTitle();
         searchPagePageObject.inputTextInSearchInput(titleForSearch);
-        searchPagePageObject.assertBookFound(titleForSearch);
+        searchPagePageObject.assertBookFoundByName(titleForSearch);
+    }
+
+    @Test
+    @Description("Перевірка пошуку книги/книг по автору")
+    public void checkSearchAuthor() {
+        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
+        SearchPagePageObject searchPagePageObject = new SearchPagePageObject(driver);
+        BookProcessor bookProcessor = new BookProcessor();
+
+        homePagePageObject.goToSearchPage();
+        searchPagePageObject.clickSearchInput();
+        String authorForSearch = bookProcessor.getRandomAuthor();
+        searchPagePageObject.inputTextInSearchInput(authorForSearch);
+        searchPagePageObject.assertBookFoundByAuthor(authorForSearch);
     }
 }
