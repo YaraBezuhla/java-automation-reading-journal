@@ -32,11 +32,11 @@ public class SearchPagePageObject {
     By nameBook = By.xpath("//h3[@data-test='search-book-title']");
 
     @Step("Перевірити, що книгу знайдено по назві")
-    public void assertBookFoundByName(String title) {
+    public void assertBookFoundByName(String expectedTitle) {
         WebElement nameBookWE = driver.findElement(nameBook);
         nameBookWE.isDisplayed();
         String titleDisplayed = nameBookWE.getText();
-        Assert.assertEquals(title, titleDisplayed, "Назва книги не вірна");
+        Assert.assertEquals(titleDisplayed, expectedTitle, "Назва книги не вірна");
     }
 
     By authorBook = By.xpath("//p[@data-test='search-book-author']");
@@ -49,5 +49,19 @@ public class SearchPagePageObject {
                 authorList.stream().allMatch(element -> element.getText().equals(expectedAuthor)),
                 "Не всі книги належать автору '" + expectedAuthor + "'."
         );
+    }
+
+    By noResultsValidation = By.xpath("//div[@class='no-results']");
+
+    @Step("Перевірка, що з'являється валідація коли відсутні результати пошуку")
+    public void assertNoResultsValidation(String inputText) {
+        driver.findElement(noResultsValidation).isDisplayed();
+        WebElement noResultsValidationWE = driver.findElement(noResultsValidation);
+
+    //    noResultsValidationWE.isDisplayed();
+        String validationDisplayed = noResultsValidationWE.getText();
+        String validationExpected = "Нічого не знайдено за запитом \"" + inputText + "\"";
+
+        Assert.assertEquals(validationDisplayed, validationExpected, "Проблеми з валідацією");
     }
 }

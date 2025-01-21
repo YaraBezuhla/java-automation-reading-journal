@@ -36,4 +36,17 @@ public class SearchPageTests extends LaunchSettings {
         searchPagePageObject.inputTextInSearchInput(authorForSearch);
         searchPagePageObject.assertBookFoundByAuthor(authorForSearch);
     }
+
+    @Test
+    @Description("Перевірка валідації при відсутності книги")
+    public void checkValidationNoResult() {
+        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
+        SearchPagePageObject searchPagePageObject = new SearchPagePageObject(driver);
+        String expectedText = "Інтеррнат";
+
+        homePagePageObject.goToSearchPage();
+        searchPagePageObject.clickSearchInput();
+        searchPagePageObject.inputTextInSearchInput(expectedText);
+        searchPagePageObject.assertNoResultsValidation(expectedText);
+    }
 }
