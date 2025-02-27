@@ -36,7 +36,7 @@ public class HomePageTests extends LaunchSettings {
         HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
 
         homePagePageObject.checkBlockTitle(homePagePageObject.getTopBooksBlockTitle(),
-                "Найпопулярніші українські книги");
+                "Найпопулярніші книги");
     }
 
     @Test
