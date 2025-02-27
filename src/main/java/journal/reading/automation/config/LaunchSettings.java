@@ -1,8 +1,9 @@
 package journal.reading.automation.config;
 
+import journal.reading.automation.config.drivers.BrowserType;
+import journal.reading.automation.config.drivers.DriverFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
 import org.testng.annotations.*;
 
 import java.io.File;
@@ -13,27 +14,20 @@ import java.util.Date;
 public class LaunchSettings {
 
     public static WebDriver driver;
-
-    ChromeOptions chromeOptions = new ChromeOptions();
-
-    public ChromeOptions configChromeOptions() {
-        chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
-        chromeOptions.setAcceptInsecureCerts(false); //SSL сертифікат
-        chromeOptions.addArguments("--start-maximized");
-
-        return chromeOptions;
-    }
+    private final DriverFactory driverFactory = new DriverFactory();
 
     @BeforeMethod
+    @Parameters("browser")
     public void setup() {
-        //    driver.manage().window().maximize();
-        driver = new ChromeDriver(configChromeOptions());
+        driver = driverFactory.CreateWebDriver(BrowserType.Chrome);
         driver.get(Sites.siteDomains.locale);
     }
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+        if (driver != null) {
+            driver.quit();
+        }
     }
 
     public void failedScreenshot(String testMethodName) {
