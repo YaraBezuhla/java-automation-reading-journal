@@ -1,4 +1,4 @@
-package journal.reading.automation.pageObjects;
+package journal.reading.automation.pageObjects.components;
 
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;

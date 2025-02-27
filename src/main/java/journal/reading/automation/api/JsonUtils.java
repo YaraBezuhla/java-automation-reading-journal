@@ -1,4 +1,4 @@
-package journal.reading.automation.settings.api;
+package journal.reading.automation.api;
 
 import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;

@@ -1,8 +1,8 @@
-package journal.reading.automation.settings.api;
+package journal.reading.automation.api;
 
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.model.Filters;
-import journal.reading.automation.settings.database.ConnectToDB;
+import journal.reading.automation.database.ConnectToDB;
 import org.bson.Document;
 import org.bson.types.ObjectId;
 import java.util.List;
