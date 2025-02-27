@@ -1,10 +1,10 @@
-package journal.reading.automation;
+package journal.reading.automation.uiTests;
 
 import io.qameta.allure.Description;
 import journal.reading.automation.datas.BookProcessor;
-import journal.reading.automation.pageObjects.HomePagePageObject;
-import journal.reading.automation.pageObjects.SearchPagePageObject;
-import journal.reading.automation.settings.launch.LaunchSettings;
+import journal.reading.automation.pageObjects.pages.HomePagePageObject;
+import journal.reading.automation.pageObjects.pages.SearchPagePageObject;
+import journal.reading.automation.config.LaunchSettings;
 import org.testng.annotations.Test;
 
 public class SearchPageTests extends LaunchSettings {

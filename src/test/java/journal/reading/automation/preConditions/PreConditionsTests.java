@@ -1,6 +1,6 @@
-package journal.reading.automation;
+package journal.reading.automation.preConditions;
 
-import journal.reading.automation.settings.api.ApiMethods;
+import journal.reading.automation.api.ApiMethods;
 import org.testng.annotations.Test;
 
 public class PreConditionsTests {

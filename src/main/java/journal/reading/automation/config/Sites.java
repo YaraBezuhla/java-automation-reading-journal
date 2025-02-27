@@ -1,4 +1,4 @@
-package journal.reading.automation.settings.launch;
+package journal.reading.automation.config;
 
 public class Sites {
 

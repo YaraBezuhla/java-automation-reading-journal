@@ -1,7 +1,7 @@
-package journal.reading.automation;
+package journal.reading.automation.apiTests;
 
 import io.qameta.allure.Description;
-import journal.reading.automation.settings.api.ApiMethods;
+import journal.reading.automation.api.ApiMethods;
 import org.testng.annotations.Test;
 
 
