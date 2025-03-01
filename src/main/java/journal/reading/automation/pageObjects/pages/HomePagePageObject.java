@@ -8,13 +8,17 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 public class HomePagePageObject {
     private final WebDriver driver;
 
     public HomePagePageObject(WebDriver driver) {
+
         this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
     By topBooksBlockTitle = By.xpath("//div[@data-test='top-books']/h2");
@@ -73,5 +77,12 @@ public class HomePagePageObject {
     public void goToSearchPage() {
         WebElement searchPageWE = driver.findElement(searchPage);
         searchPageWE.click();
+    }
+
+    @FindBy(xpath = "//a[@data-test='add-book-link']")
+    private WebElement toAddBook;
+
+    public void goToAddBook() {
+        toAddBook.click();
     }
 }
