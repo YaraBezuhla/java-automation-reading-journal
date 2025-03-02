@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.apache.commons.io.function.Uncheck.test
+
 plugins {
     id("java")
 }
@@ -10,7 +12,7 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.testng:testng:7.10.2")
+    testImplementation("org.testng:testng:7.11.0")
     implementation("org.seleniumhq.selenium:selenium-java:4.25.0")
     implementation("org.mongodb:mongodb-driver-sync:5.2.0")
     implementation("io.qameta.allure:allure-testng:2.29.0")
@@ -20,6 +22,6 @@ dependencies {
 
 }
 
-/*tasks.test {
-    useJUnitPlatform()
-}*/
+tasks.test {
+    useTestNG()
+}

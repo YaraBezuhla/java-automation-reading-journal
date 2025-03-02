@@ -82,6 +82,7 @@ public class HomePagePageObject {
     @FindBy(xpath = "//a[@data-test='add-book-link']")
     private WebElement toAddBook;
 
+    @Step("Go to Add Book page")
     public void goToAddBook() {
         toAddBook.click();
     }
