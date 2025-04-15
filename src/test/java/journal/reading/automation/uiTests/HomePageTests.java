@@ -18,7 +18,7 @@ public class HomePageTests extends LaunchSettings {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
-    @Description("Порівняння книг, що є в базі і що виводяться на сайті по тайтлу")
+    @Description("Comparison of books in the database and those displayed on the website by title")
     public void AssertBooks() {
         GetDataWithMongoDB getDataWithMongoDB = new GetDataWithMongoDB();
         DataManipulation dataManipulation = new DataManipulation();
@@ -31,7 +31,7 @@ public class HomePageTests extends LaunchSettings {
 
     @Test
     @Severity(SeverityLevel.MINOR)
-    @Description("Перевірка назви блоку з топовими книгами")
+    @Description("Check the title of a block with top books")
     public void AssertTopBooksBlockTitle() {
         HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
 
@@ -41,7 +41,7 @@ public class HomePageTests extends LaunchSettings {
 
     @Test
     @Severity(SeverityLevel.MINOR)
-    @Description("Перевірка назви блоку з топовими авторами")
+    @Description("Verify block titles with top authors")
     public void AssertTopAuthorsBlockTitle() {
         HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
 

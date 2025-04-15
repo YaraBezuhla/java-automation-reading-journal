@@ -8,10 +8,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class AddBookPageObject {
-    private final WebDriver driver;
 
     public AddBookPageObject(WebDriver driver) {
-        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
