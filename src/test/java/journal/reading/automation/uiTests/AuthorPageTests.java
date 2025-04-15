@@ -3,8 +3,6 @@ package journal.reading.automation.uiTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import journal.reading.automation.pageObjects.components.BookTitlesComponent;
-import journal.reading.automation.pageObjects.pages.HomePagePageObject;
 import journal.reading.automation.database.DataManipulation;
 import journal.reading.automation.database.GetDataWithMongoDB;
 import journal.reading.automation.config.LaunchSettings;
@@ -19,13 +17,11 @@ public class AuthorPageTests extends LaunchSettings {
     @Description("Checking that the author's page displays all his books in the database")
     public void AssertBooksOnAuthorPage() {
         GetDataWithMongoDB getDataWithMongoDB = new GetDataWithMongoDB();
-        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
         DataManipulation dataManipulation = new DataManipulation();
-        BookTitlesComponent bookTitlesComponent = new BookTitlesComponent(driver);
 
-        homePagePageObject.goToAuthorPage("Ілларіон Павлюк");
+        pages.homePagePageObject().goToAuthorPage("Ілларіон Павлюк");
         ArrayList<String> dbTitles = getDataWithMongoDB.getBookTitlesOneAuthorFromDatabase("Ілларіон Павлюк");
-        ArrayList<String> webTitles = bookTitlesComponent.getBookTitlesOnWebsite();
+        ArrayList<String> webTitles = pages.bookTitlesComponent().getBookTitlesOnWebsite();
         dataManipulation.compareDataFromWebsiteAndDatabase(dbTitles,webTitles);
     }
 }
