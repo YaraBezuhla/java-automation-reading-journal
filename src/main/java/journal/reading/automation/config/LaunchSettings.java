@@ -1,6 +1,5 @@
 package journal.reading.automation.config;
 
-import journal.reading.automation.config.drivers.BrowserType;
 import journal.reading.automation.config.drivers.DriverFactory;
 import journal.reading.automation.pageObjects.PageObjectsFacade;
 import org.apache.commons.io.FileUtils;
@@ -18,11 +17,12 @@ public class LaunchSettings {
     private final DriverFactory driverFactory = new DriverFactory();
     protected PageObjectsFacade pages;
 
+
     @BeforeMethod
     @Parameters("browser")
     public void setup() {
-        driver = driverFactory.CreateWebDriver(BrowserType.Chrome);
-        driver.get(Sites.siteDomains.locale);
+        driver = driverFactory.CreateWebDriver(Config.BrowserType.CHROME);
+        driver.get(Config.Domains.LOCALE);
         pages = new PageObjectsFacade(driver);
     }
 
