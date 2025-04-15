@@ -4,8 +4,6 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import journal.reading.automation.pageObjects.components.BookTitlesComponent;
-import journal.reading.automation.pageObjects.pages.HomePagePageObject;
 import journal.reading.automation.database.DataManipulation;
 import journal.reading.automation.database.GetDataWithMongoDB;
 import journal.reading.automation.config.LaunchSettings;
@@ -22,10 +20,9 @@ public class HomePageTests extends LaunchSettings {
     public void AssertBooks() {
         GetDataWithMongoDB getDataWithMongoDB = new GetDataWithMongoDB();
         DataManipulation dataManipulation = new DataManipulation();
-        BookTitlesComponent bookTitlesComponent = new BookTitlesComponent(driver);
 
         ArrayList<String> dbTitles = getDataWithMongoDB.getBookTitlesFromDatabase();
-        ArrayList<String> webTitles = bookTitlesComponent.getBookTitlesOnWebsite();
+        ArrayList<String> webTitles = pages.bookTitlesComponent().getBookTitlesOnWebsite();
         dataManipulation.compareDataFromWebsiteAndDatabase(dbTitles,webTitles);
     }
 
@@ -33,9 +30,7 @@ public class HomePageTests extends LaunchSettings {
     @Severity(SeverityLevel.MINOR)
     @Description("Check the title of a block with top books")
     public void AssertTopBooksBlockTitle() {
-        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
-
-        homePagePageObject.checkBlockTitle(homePagePageObject.getTopBooksBlockTitle(),
+        pages.homePagePageObject().checkBlockTitle(pages.homePagePageObject().getTopBooksBlockTitle(),
                 "Найпопулярніші книги");
     }
 
@@ -43,9 +38,7 @@ public class HomePageTests extends LaunchSettings {
     @Severity(SeverityLevel.MINOR)
     @Description("Verify block titles with top authors")
     public void AssertTopAuthorsBlockTitle() {
-        HomePagePageObject homePagePageObject = new HomePagePageObject(driver);
-
-        homePagePageObject.checkBlockTitle(homePagePageObject.getTopAuthorsBlockTitle(),
+        pages.homePagePageObject().checkBlockTitle(pages.homePagePageObject().getTopAuthorsBlockTitle(),
                 "Українські автори");
     }
 

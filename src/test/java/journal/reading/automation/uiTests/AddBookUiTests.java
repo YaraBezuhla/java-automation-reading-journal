@@ -1,8 +1,6 @@
 package journal.reading.automation.uiTests;
 
 import journal.reading.automation.config.LaunchSettings;
-import journal.reading.automation.pageObjects.components.PagesInHeaderComponents;
-import journal.reading.automation.pageObjects.pages.AddBookPageObject;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -19,12 +17,9 @@ public class AddBookUiTests extends LaunchSettings {
 
     @Test(dataProvider = "bookData")
     public void addBookTest(String title, String author, String genre) {
-        AddBookPageObject addBook = new AddBookPageObject(driver);
-        PagesInHeaderComponents pagesInHeaderComponents = new PagesInHeaderComponents(driver);
-
-        pagesInHeaderComponents.goToAddBook();
-        addBook.enterTitle(title);
-        addBook.enterAuthor(author);
-        addBook.selectGenre(genre);
+        pages.pagesInHeaderComponents().goToAddBook();
+        pages.addBookPageObject().enterTitle(title);
+        pages.addBookPageObject().enterAuthor(author);
+        pages.addBookPageObject().selectGenre(genre);
     }
 }
