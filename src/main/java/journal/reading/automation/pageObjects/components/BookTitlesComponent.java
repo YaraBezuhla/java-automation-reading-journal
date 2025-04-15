@@ -22,7 +22,7 @@ public class BookTitlesComponent {
     @FindBy(xpath = "//div[@data-test='top-books']//button[@data-test='load-more-button']")
     private WebElement loadMoreButtonBooksBlock;
 
-    @Step("Отримати назви книг")
+    @Step("Get book titles")
     public ArrayList<String> getBookTitlesOnWebsite() {
         ArrayList<String> titlesList = new ArrayList<>();
         while (true) {

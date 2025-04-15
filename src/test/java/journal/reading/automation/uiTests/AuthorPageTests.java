@@ -16,7 +16,7 @@ public class AuthorPageTests extends LaunchSettings {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)
-    @Description("Перевірка, що на сторінці автора виводяться всі його книги, що є в БД")
+    @Description("Checking that the author's page displays all his books in the database")
     public void AssertBooksOnAuthorPage() {
         GetDataWithMongoDB getDataWithMongoDB = new GetDataWithMongoDB();
         HomePagePageObject homePagePageObject = new HomePagePageObject(driver);

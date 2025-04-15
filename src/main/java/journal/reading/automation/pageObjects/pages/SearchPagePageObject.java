@@ -1,65 +1,55 @@
 package journal.reading.automation.pageObjects.pages;
 
 import io.qameta.allure.Step;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
 
 public class SearchPagePageObject {
-    private final WebDriver driver;
 
     public SearchPagePageObject(WebDriver driver) {
-        this.driver = driver;
+        PageFactory.initElements(driver, this);
     }
 
-    By searchInput = By.xpath("//input[@class='search-input']");
+    @FindBy(xpath = "//input[@class='search-input']")
+    private WebElement searchInput;
 
-    @Step("Клікнути в поле пошуку")
-    public void clickSearchInput() {
-        WebElement searchInputWE = driver.findElement(searchInput);
-        searchInputWE.click();
-    }
+    @Step("Click in the search field")
+    public void clickSearchInput() { searchInput.click(); }
 
-    @Step("Ввести пошуковий запит")
-    public void inputTextInSearchInput(String searchText) {
-        WebElement searchInputWE = driver.findElement(searchInput);
-        searchInputWE.sendKeys(searchText);
-    }
+    @Step("Enter a search query")
+    public void inputTextInSearchInput(String searchText) { searchInput.sendKeys(searchText); }
 
-    By nameBook = By.xpath("//h3[@data-test='search-book-title']");
+    @FindBy(xpath = "//h3[@data-test='search-book-title']")
+    private WebElement nameBook;
 
-    @Step("Перевірити, що книгу знайдено по назві")
+    @Step("Check that the book is found by name")
     public void assertBookFoundByName(String expectedTitle) {
-        WebElement nameBookWE = driver.findElement(nameBook);
-        nameBookWE.isDisplayed();
-        String titleDisplayed = nameBookWE.getText();
+        String titleDisplayed = nameBook.getText();
         Assert.assertEquals(titleDisplayed, expectedTitle, "Назва книги не вірна");
     }
 
-    By authorBook = By.xpath("//p[@data-test='search-book-author']");
+    @FindBy(xpath = "//p[@data-test='search-book-author']")
+    private List<WebElement>  authorBook;
 
-    @Step("Перевірити, знайдено книгу/книги по автору")
+    @Step("Check if the book/books were found by author")
     public void assertBookFoundByAuthor(String expectedAuthor) {
-        List<WebElement> authorList = driver.findElements(authorBook);
-
         Assert.assertTrue(
-                authorList.stream().allMatch(element -> element.getText().equals(expectedAuthor)),
+                authorBook.stream().allMatch(element -> element.getText().equals(expectedAuthor)),
                 "Не всі книги належать автору '" + expectedAuthor + "'."
         );
     }
 
-    By noResultsValidation = By.xpath("//div[@class='no-results']");
+    @FindBy(xpath = "//div[@class='no-results']")
+    private WebElement noResultsValidation;
 
-    @Step("Перевірка, що з'являється валідація коли відсутні результати пошуку")
+    @Step("Check that validation appears when there are no search results")
     public void assertNoResultsValidation(String inputText) {
-        driver.findElement(noResultsValidation).isDisplayed();
-        WebElement noResultsValidationWE = driver.findElement(noResultsValidation);
-
-    //    noResultsValidationWE.isDisplayed();
-        String validationDisplayed = noResultsValidationWE.getText();
+        String validationDisplayed = noResultsValidation.getText();
         String validationExpected = "Нічого не знайдено за запитом \"" + inputText + "\"";
 
         Assert.assertEquals(validationDisplayed, validationExpected, "Проблеми з валідацією");
