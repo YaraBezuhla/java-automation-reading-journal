@@ -1,6 +1,7 @@
 package journal.reading.automation.pageObjects.pages;
 
 import io.qameta.allure.Step;
+import journal.reading.automation.config.WaitService;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,9 +11,11 @@ import org.testng.Assert;
 import java.util.List;
 
 public class SearchPagePageObject {
+    private final WaitService wait;
 
-    public SearchPagePageObject(WebDriver driver) {
+    public SearchPagePageObject(WebDriver driver, WaitService wait) {
         PageFactory.initElements(driver, this);
+        this.wait = wait;
     }
 
     @FindBy(xpath = "//input[@class='search-input']")
@@ -29,7 +32,7 @@ public class SearchPagePageObject {
 
     @Step("Check that the book is found by name")
     public void assertBookFoundByName(String expectedTitle) {
-        String titleDisplayed = nameBook.getText();
+        String titleDisplayed = wait.waitForVisibility(nameBook).getText();
         Assert.assertEquals(titleDisplayed, expectedTitle, "Назва книги не вірна");
     }
 
