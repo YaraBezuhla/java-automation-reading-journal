@@ -5,7 +5,7 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import journal.reading.automation.database.DataManipulation;
 import journal.reading.automation.database.GetDataWithMongoDB;
-import journal.reading.automation.config.LaunchSettings;
+import journal.reading.automation.config.utilities.LaunchSettings;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package journal.reading.automation.config;
+package journal.reading.automation.config.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

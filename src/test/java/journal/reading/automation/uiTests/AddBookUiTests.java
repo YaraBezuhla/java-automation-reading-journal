@@ -1,6 +1,6 @@
 package journal.reading.automation.uiTests;
 
-import journal.reading.automation.config.LaunchSettings;
+import journal.reading.automation.config.utilities.LaunchSettings;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
