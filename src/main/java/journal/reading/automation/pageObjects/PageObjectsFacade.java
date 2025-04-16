@@ -1,5 +1,6 @@
 package journal.reading.automation.pageObjects;
 
+import journal.reading.automation.config.WaitService;
 import journal.reading.automation.pageObjects.components.BookTitlesComponent;
 import journal.reading.automation.pageObjects.components.PagesInHeaderComponents;
 import journal.reading.automation.pageObjects.pages.AddBookPageObject;
@@ -7,11 +8,14 @@ import journal.reading.automation.pageObjects.pages.HomePagePageObject;
 import journal.reading.automation.pageObjects.pages.SearchPagePageObject;
 import org.openqa.selenium.WebDriver;
 
+
 public class PageObjectsFacade {
     private final WebDriver driver;
+    private final WaitService wait;
 
-    public PageObjectsFacade(WebDriver driver) {
+    public PageObjectsFacade(WebDriver driver, WaitService wait) {
         this.driver = driver;
+        this.wait = wait;
     }
 
     public BookTitlesComponent bookTitlesComponent() {
@@ -31,7 +35,7 @@ public class PageObjectsFacade {
     }
 
     public SearchPagePageObject searchPagePageObject() {
-        return new SearchPagePageObject(driver);
+        return new SearchPagePageObject(driver, wait);
     }
 
 }

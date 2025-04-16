@@ -8,12 +8,14 @@ import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Date;
 
 
 public class LaunchSettings {
 
     public static WebDriver driver;
+    protected WaitService wait;
     private final DriverFactory driverFactory = new DriverFactory();
     protected PageObjectsFacade pages;
 
@@ -22,8 +24,9 @@ public class LaunchSettings {
     @Parameters("browser")
     public void setup() {
         driver = driverFactory.CreateWebDriver(Config.BrowserType.CHROME);
+        wait = new WaitService(driver, Config.DEFAULT_TIMEOUT);
         driver.get(Config.Domains.LOCALE);
-        pages = new PageObjectsFacade(driver);
+        pages = new PageObjectsFacade(driver, wait);
     }
 
     @AfterMethod

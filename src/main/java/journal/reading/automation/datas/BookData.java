@@ -2,7 +2,6 @@ package journal.reading.automation.datas;
 
 public enum BookData {
     INTERNAT("Інтернат", "Сергій Жадан"),
-    IAMROMANTIC("Я (Романтика)", "Микола Хвильовий"),
     TIGERS("Тигролови", "Іван Багряний"),
     INTERMEZZO("Intermezzo", "Михайло Коцюбинський"),
     YOUAREINTERESTEDDARKNESS("Я бачу вас цікавить пітьма", "Ілларіон Павлюк");
