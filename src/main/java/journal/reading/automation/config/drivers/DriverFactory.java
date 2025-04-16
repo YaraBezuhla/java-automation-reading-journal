@@ -1,6 +1,6 @@
 package journal.reading.automation.config.drivers;
 
-import journal.reading.automation.config.Config;
+import journal.reading.automation.config.utilities.Config;
 import journal.reading.automation.config.browserOptions.BrowserOptionsProvider;
 import journal.reading.automation.config.browserOptions.ChromeOptionsProvider;
 import journal.reading.automation.config.browserOptions.FirefoxOptionsProvider;

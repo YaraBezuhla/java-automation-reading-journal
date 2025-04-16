@@ -1,7 +1,7 @@
 package journal.reading.automation.pageObjects.pages;
 
 import io.qameta.allure.Step;
-import journal.reading.automation.config.WaitService;
+import journal.reading.automation.config.utilities.WaitService;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

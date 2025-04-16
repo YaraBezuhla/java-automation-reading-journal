@@ -1,4 +1,4 @@
-package journal.reading.automation.config;
+package journal.reading.automation.config.utilities;
 
 import java.time.Duration;
 

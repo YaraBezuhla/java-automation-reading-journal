@@ -1,4 +1,4 @@
-package journal.reading.automation.config;
+package journal.reading.automation.config.utilities;
 
 import journal.reading.automation.config.drivers.DriverFactory;
 import journal.reading.automation.pageObjects.PageObjectsFacade;
@@ -8,7 +8,6 @@ import org.testng.annotations.*;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 import java.util.Date;
 
 
