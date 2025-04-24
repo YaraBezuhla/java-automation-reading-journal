@@ -16,7 +16,9 @@ public class HeaderComponent {
     private WebElement searchPage;
 
     @Step("Go to the search page")
-    public void goToSearchPage() { searchPage.click(); }
+    public void goToSearchPage() {
+        searchPage.click();
+    }
 
     @FindBy(xpath = "//a[@data-test='add-book-link']")
     private WebElement addBook;
@@ -32,5 +34,13 @@ public class HeaderComponent {
     @Step("Click Login in Header")
     public void clickLoginInHeader() {
         loginInHeader.click();
+    }
+
+    @FindBy(className = "burger-menu")
+    private WebElement burger;
+
+    @Step("Click on burger")
+    public void clickBurger() {
+        burger.click();
     }
 }

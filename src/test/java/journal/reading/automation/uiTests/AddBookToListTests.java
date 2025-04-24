@@ -8,8 +8,14 @@ public class AddBookToListTests extends LaunchSettings {
 
     @Test
     @Description("Successfully add the book to your wish list")
-    public void successfullyAddBookToWishList(){
+    public void successfullyAddBookToWishList() {
+        String bookExpected = "Інтернат";
         pages.headerComponent().clickLoginInHeader();
         pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.bookTitlesComponent().openBook(bookExpected);
+        pages.bookPageObject().clickReadListBtn();
+        pages.headerComponent().clickBurger();
+        pages.burgerComponent().clickReadBooksList();
+        pages.bookTitlesComponent().checkAvailabilityBook(bookExpected);
     }
 }
