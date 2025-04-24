@@ -2,11 +2,9 @@ package journal.reading.automation.pageObjects;
 
 import journal.reading.automation.config.utilities.WaitService;
 import journal.reading.automation.pageObjects.components.BookTitlesComponent;
+import journal.reading.automation.pageObjects.components.BurgerComponent;
 import journal.reading.automation.pageObjects.components.HeaderComponent;
-import journal.reading.automation.pageObjects.pages.AddBookPageObject;
-import journal.reading.automation.pageObjects.pages.AuthPageObject;
-import journal.reading.automation.pageObjects.pages.HomePagePageObject;
-import journal.reading.automation.pageObjects.pages.SearchPagePageObject;
+import journal.reading.automation.pageObjects.pages.*;
 import org.openqa.selenium.WebDriver;
 
 
@@ -20,9 +18,9 @@ public class PageObjectsFacade {
     }
 
     public BookTitlesComponent bookTitlesComponent() {
-        return new BookTitlesComponent(driver);
+        return new BookTitlesComponent(driver, wait);
     }
-    
+
     public AddBookPageObject addBookPageObject() {
         return new AddBookPageObject(driver);
     }
@@ -35,8 +33,20 @@ public class PageObjectsFacade {
         return new SearchPagePageObject(driver, wait);
     }
 
-    public AuthPageObject authPageObject() { return new AuthPageObject(driver); }
+    public AuthPageObject authPageObject() {
+        return new AuthPageObject(driver);
+    }
 
-    public HeaderComponent headerComponent() {return new HeaderComponent(driver);}
+    public HeaderComponent headerComponent() {
+        return new HeaderComponent(driver);
+    }
+
+    public BookPageObject bookPageObject() {
+        return new BookPageObject(driver);
+    }
+
+    public BurgerComponent burgerComponent() {
+        return new BurgerComponent(driver, wait);
+    }
 
 }
