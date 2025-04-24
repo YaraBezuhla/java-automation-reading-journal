@@ -6,9 +6,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class PagesInHeaderComponents {
+public class HeaderComponent {
 
-    public PagesInHeaderComponents(WebDriver driver) {
+    public HeaderComponent(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
@@ -24,5 +24,13 @@ public class PagesInHeaderComponents {
     @Step("Go to Add Book page")
     public void goToAddBook() {
         addBook.click();
+    }
+
+    @FindBy(className = "auth-btn")
+    private WebElement loginInHeader;
+
+    @Step("Click Login in Header")
+    public void clickLoginInHeader() {
+        loginInHeader.click();
     }
 }
