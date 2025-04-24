@@ -17,7 +17,7 @@ public class AddBookUiTests extends LaunchSettings {
 
     @Test(dataProvider = "bookData")
     public void addBookTest(String title, String author, String genre) {
-        pages.pagesInHeaderComponents().goToAddBook();
+        pages.headerComponent().goToAddBook();
         pages.addBookPageObject().enterTitle(title);
         pages.addBookPageObject().enterAuthor(author);
         pages.addBookPageObject().selectGenre(genre);

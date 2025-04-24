@@ -12,7 +12,7 @@ public class SearchPageTests extends LaunchSettings {
     public void checkSearchTitle() {
         BookProcessor bookProcessor = new BookProcessor();
 
-        pages.pagesInHeaderComponents().goToSearchPage();
+        pages.headerComponent().goToSearchPage();
         pages.searchPagePageObject().clickSearchInput();
         String titleForSearch = bookProcessor.getRandomTitle();
         pages.searchPagePageObject().inputTextInSearchInput(titleForSearch);
@@ -24,7 +24,7 @@ public class SearchPageTests extends LaunchSettings {
     public void checkSearchAuthor() {
         BookProcessor bookProcessor = new BookProcessor();
 
-        pages.pagesInHeaderComponents().goToSearchPage();
+        pages.headerComponent().goToSearchPage();
         pages.searchPagePageObject().clickSearchInput();
         String authorForSearch = bookProcessor.getRandomAuthor();
         pages.searchPagePageObject().inputTextInSearchInput(authorForSearch);
@@ -36,7 +36,7 @@ public class SearchPageTests extends LaunchSettings {
     public void checkValidationNoResult() {
         String expectedText = "Інтеррнат";
 
-        pages.pagesInHeaderComponents().goToSearchPage();
+        pages.headerComponent().goToSearchPage();
         pages.searchPagePageObject().clickSearchInput();
         pages.searchPagePageObject().inputTextInSearchInput(expectedText);
         pages.searchPagePageObject().assertNoResultsValidation(expectedText);
