@@ -7,8 +7,8 @@ import org.testng.annotations.Test;
 public class AddBookToListTests extends LaunchSettings {
 
     @Test
-    @Description("Successfully add the book to your wish list")
-    public void successfullyAddBookToWishList() {
+    @Description("Successfully add the book to your read list")
+    public void successfullyAddBookToReadList() {
         String bookExpected = "Інтернат";
         pages.headerComponent().clickLoginInHeader();
         pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
@@ -16,6 +16,19 @@ public class AddBookToListTests extends LaunchSettings {
         pages.bookPageObject().clickReadListBtn();
         pages.headerComponent().clickBurger();
         pages.burgerComponent().clickReadBooksList();
+        pages.bookTitlesComponent().checkAvailabilityBook(bookExpected);
+    }
+
+    @Test
+    @Description("Successfully add the book to your wish list")
+    public void successfullyAddBookToWishList() {
+        String bookExpected = "Я бачу, вас цікавить пітьма";
+        pages.headerComponent().clickLoginInHeader();
+        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.bookTitlesComponent().openBook(bookExpected);
+        pages.bookPageObject().clickWishListBtn();
+        pages.headerComponent().clickBurger();
+        pages.burgerComponent().clickWishList();
         pages.bookTitlesComponent().checkAvailabilityBook(bookExpected);
     }
 }
