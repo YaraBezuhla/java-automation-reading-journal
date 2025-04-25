@@ -1,5 +1,6 @@
 package journal.reading.automation.api;
 
+import io.qameta.allure.Step;
 import io.qameta.allure.internal.shadowed.jackson.core.type.TypeReference;
 import io.qameta.allure.internal.shadowed.jackson.databind.JsonNode;
 import io.qameta.allure.internal.shadowed.jackson.databind.ObjectMapper;
@@ -14,6 +15,7 @@ public class ApiMethods {
 
     private static final String BOOKS_JSON_FILE = "C:/Users/Ярослава/Projects/java-automation-reading-journal/src/test/resources/testData/books.json";
 
+    @Step("Add book through api")
     public void addBookApi(int bookIndex, int codeResponse) {
         try {
 
@@ -40,6 +42,7 @@ public class ApiMethods {
         }
     }
 
+    @Step("Delete book through api")
     public void deleteBookApiByTitle() {
         try {
 

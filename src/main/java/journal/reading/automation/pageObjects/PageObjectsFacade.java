@@ -3,6 +3,7 @@ package journal.reading.automation.pageObjects;
 import journal.reading.automation.config.utilities.WaitService;
 import journal.reading.automation.pageObjects.components.BookTitlesComponent;
 import journal.reading.automation.pageObjects.components.BurgerComponent;
+import journal.reading.automation.pageObjects.components.DeleteButtonWithList;
 import journal.reading.automation.pageObjects.components.HeaderComponent;
 import journal.reading.automation.pageObjects.pages.*;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +39,7 @@ public class PageObjectsFacade {
     }
 
     public HeaderComponent headerComponent() {
-        return new HeaderComponent(driver);
+        return new HeaderComponent(driver, wait);
     }
 
     public BookPageObject bookPageObject() {
@@ -47,6 +48,10 @@ public class PageObjectsFacade {
 
     public BurgerComponent burgerComponent() {
         return new BurgerComponent(driver, wait);
+    }
+
+    public DeleteButtonWithList deleteButtonWithList() {
+        return new DeleteButtonWithList(driver, wait);
     }
 
 }
