@@ -4,7 +4,7 @@ import io.qameta.allure.Description;
 import journal.reading.automation.config.utilities.LaunchSettings;
 import org.testng.annotations.Test;
 
-public class AddBookToListTests extends LaunchSettings {
+public class BookListsTests extends LaunchSettings {
 
     @Test
     @Description("Successfully add the book to your read list")
@@ -30,5 +30,25 @@ public class AddBookToListTests extends LaunchSettings {
         pages.headerComponent().clickBurger();
         pages.burgerComponent().clickWishList();
         pages.bookTitlesComponent().checkAvailabilityBook(bookExpected);
+    }
+
+    @Test
+    @Description("Delete book with reag list")
+    public void deleteBookWithReadList(){
+        pages.headerComponent().clickLoginInHeader();
+        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.headerComponent().clickBurger();
+        pages.burgerComponent().clickReadBooksList();
+        pages.deleteButtonWithList().deleteBtnClick();
+    }
+
+    @Test
+    @Description("Delete book with wish list")
+    public void deleteBookWithWithList(){
+        pages.headerComponent().clickLoginInHeader();
+        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.headerComponent().clickBurger();
+        pages.burgerComponent().clickWishList();
+        pages.deleteButtonWithList().deleteBtnClick();
     }
 }

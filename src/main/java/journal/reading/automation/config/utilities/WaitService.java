@@ -24,8 +24,8 @@ public class WaitService {
     public List<WebElement> waitForVisibility(List<WebElement> elements) {
         return wait.until(ExpectedConditions.visibilityOfAllElements(elements));
     }
-    public  WebElement waitForClickable(By locator) {
-        return wait.until(ExpectedConditions.elementToBeClickable(locator));
+    public  WebElement waitForClickable(WebElement element) {
+        return wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
    public boolean waitForTextPresent(By locator, String text) {
