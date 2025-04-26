@@ -1,6 +1,8 @@
-package journal.reading.automation.datas;
+package journal.reading.automation.testData.processor;
 
 import io.qameta.allure.Step;
+import journal.reading.automation.testData.enums.BookData;
+
 import java.util.Random;
 
 public class BookProcessor {
