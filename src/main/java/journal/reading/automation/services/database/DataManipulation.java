@@ -1,4 +1,4 @@
-package journal.reading.automation.database;
+package journal.reading.automation.services.database;
 
 import io.qameta.allure.Step;
 import org.testng.Assert;

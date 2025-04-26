@@ -3,8 +3,8 @@ package journal.reading.automation.uiTests;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import journal.reading.automation.database.DataManipulation;
-import journal.reading.automation.database.GetDataWithMongoDB;
+import journal.reading.automation.services.database.DataManipulation;
+import journal.reading.automation.services.database.GetDataWithMongoDB;
 import journal.reading.automation.config.utilities.LaunchSettings;
 import org.testng.annotations.Test;
 

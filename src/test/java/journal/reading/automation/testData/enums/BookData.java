@@ -1,4 +1,4 @@
-package journal.reading.automation.datas;
+package journal.reading.automation.testData.enums;
 
 public enum BookData {
     INTERNAT("Інтернат", "Сергій Жадан"),

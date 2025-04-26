@@ -1,7 +1,7 @@
 package journal.reading.automation.uiTests;
 
 import io.qameta.allure.Description;
-import journal.reading.automation.datas.BookProcessor;
+import journal.reading.automation.testData.processor.BookProcessor;
 import journal.reading.automation.config.utilities.LaunchSettings;
 import org.testng.annotations.Test;
 
