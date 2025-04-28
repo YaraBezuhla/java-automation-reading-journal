@@ -25,3 +25,12 @@ dependencies {
 tasks.test {
     useTestNG()
 }
+
+sourceSets {
+    named("main") {
+        resources {
+            srcDir("src/main/resources")
+            include("**/*.properties")
+        }
+    }
+}

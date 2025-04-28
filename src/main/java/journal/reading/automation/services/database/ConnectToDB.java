@@ -1,6 +1,7 @@
 package journal.reading.automation.services.database;
 
 import com.mongodb.client.*;
+import journal.reading.automation.config.utilities.ConfigReader;
 import org.bson.Document;
 
 public class ConnectToDB {
@@ -8,8 +9,8 @@ public class ConnectToDB {
     MongoDatabase database;
 
     public MongoCollection<Document> connectToMongoDB(String nameCollection){
-        mongoClient = MongoClients.create("mongodb://localhost:27017"); // Підключення до MongoDB
-        database = mongoClient.getDatabase("automationreadingjournal"); // Отримання об'єкта бази даних
+        mongoClient = MongoClients.create(ConfigReader.get("mongodb.uri"));
+        database = mongoClient.getDatabase(ConfigReader.get("mongodb.database"));
         // Отримання колекції
         return database.getCollection(nameCollection);
     }
