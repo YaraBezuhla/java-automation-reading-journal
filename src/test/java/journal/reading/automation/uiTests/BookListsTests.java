@@ -2,6 +2,7 @@ package journal.reading.automation.uiTests;
 
 import io.qameta.allure.Description;
 import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.testData.providers.CredentialsProvider;
 import org.testng.annotations.Test;
 
 public class BookListsTests extends LaunchSettings {
@@ -11,7 +12,7 @@ public class BookListsTests extends LaunchSettings {
     public void successfullyAddBookToReadList() {
         String bookExpected = "Інтернат";
         pages.headerComponent().clickLoginInHeader();
-        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.authPageObject().fullAuthorization(CredentialsProvider.get("username"), CredentialsProvider.get("password"));
         pages.bookTitlesComponent().openBook(bookExpected);
         pages.bookPageObject().clickReadListBtn();
         pages.headerComponent().clickBurger();
@@ -24,7 +25,7 @@ public class BookListsTests extends LaunchSettings {
     public void successfullyAddBookToWishList() {
         String bookExpected = "Я бачу, вас цікавить пітьма";
         pages.headerComponent().clickLoginInHeader();
-        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.authPageObject().fullAuthorization(CredentialsProvider.get("username"), CredentialsProvider.get("password"));
         pages.bookTitlesComponent().openBook(bookExpected);
         pages.bookPageObject().clickWishListBtn();
         pages.headerComponent().clickBurger();
@@ -36,7 +37,7 @@ public class BookListsTests extends LaunchSettings {
     @Description("Delete book with reag list")
     public void deleteBookWithReadList(){
         pages.headerComponent().clickLoginInHeader();
-        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.authPageObject().fullAuthorization(CredentialsProvider.get("username"), CredentialsProvider.get("password"));
         pages.headerComponent().clickBurger();
         pages.burgerComponent().clickReadBooksList();
         pages.deleteButtonWithList().deleteBtnClick();
@@ -46,7 +47,7 @@ public class BookListsTests extends LaunchSettings {
     @Description("Delete book with wish list")
     public void deleteBookWithWithList(){
         pages.headerComponent().clickLoginInHeader();
-        pages.authPageObject().fullAuthorization("testlogin4", "testlogin4");
+        pages.authPageObject().fullAuthorization(CredentialsProvider.get("username"), CredentialsProvider.get("password"));
         pages.headerComponent().clickBurger();
         pages.burgerComponent().clickWishList();
         pages.deleteButtonWithList().deleteBtnClick();
