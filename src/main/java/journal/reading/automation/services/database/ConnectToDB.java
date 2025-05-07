@@ -1,7 +1,7 @@
 package journal.reading.automation.services.database;
 
 import com.mongodb.client.*;
-import journal.reading.automation.config.utilities.ConfigReader;
+import journal.reading.automation.core.utilities.ConfigReader;
 import org.bson.Document;
 
 public class ConnectToDB {

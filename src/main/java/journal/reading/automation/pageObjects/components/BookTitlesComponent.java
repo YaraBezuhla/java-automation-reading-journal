@@ -1,7 +1,7 @@
 package journal.reading.automation.pageObjects.components;
 
 import io.qameta.allure.Step;
-import journal.reading.automation.config.utilities.WaitService;
+import journal.reading.automation.core.utilities.WaitService;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

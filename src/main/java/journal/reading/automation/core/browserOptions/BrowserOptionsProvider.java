@@ -1,4 +1,4 @@
-package journal.reading.automation.config.browserOptions;
+package journal.reading.automation.core.browserOptions;
 
 import org.openqa.selenium.MutableCapabilities;
 

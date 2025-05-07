@@ -5,12 +5,12 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import journal.reading.automation.services.database.DataManipulation;
 import journal.reading.automation.services.database.GetDataWithMongoDB;
-import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.core.BaseTest;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 
-public class AuthorPageTests extends LaunchSettings {
+public class AuthorPageTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)

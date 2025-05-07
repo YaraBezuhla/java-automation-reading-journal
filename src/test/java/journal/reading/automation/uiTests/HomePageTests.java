@@ -6,13 +6,13 @@ import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
 import journal.reading.automation.services.database.DataManipulation;
 import journal.reading.automation.services.database.GetDataWithMongoDB;
-import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.core.BaseTest;
 import org.testng.annotations.*;
 import java.util.ArrayList;
 
 //@Listeners(journal.reading.automation.settings.launch.TestListener.class)
 @Feature("Home Page")
-public class HomePageTests extends LaunchSettings {
+public class HomePageTests extends BaseTest {
 
     @Test
     @Severity(SeverityLevel.BLOCKER)

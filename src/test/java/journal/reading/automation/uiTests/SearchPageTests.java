@@ -2,10 +2,10 @@ package journal.reading.automation.uiTests;
 
 import io.qameta.allure.Description;
 import journal.reading.automation.testData.processor.BookProcessor;
-import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.core.BaseTest;
 import org.testng.annotations.Test;
 
-public class SearchPageTests extends LaunchSettings {
+public class SearchPageTests extends BaseTest {
 
     @Test
     @Description("Перевірка пошуку книги по назві")

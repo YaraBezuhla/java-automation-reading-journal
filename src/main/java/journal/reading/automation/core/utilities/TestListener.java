@@ -1,5 +1,6 @@
-package journal.reading.automation.config.utilities;
+package journal.reading.automation.core.utilities;
 
+import journal.reading.automation.core.BaseTest;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,7 +14,7 @@ import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class TestListener extends LaunchSettings implements ITestListener {
+public class TestListener extends BaseTest implements ITestListener {
     private long startTime;
 
     @Override
