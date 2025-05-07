@@ -16,25 +16,29 @@ public class AddBookPageObject {
     @FindBy(id = "title")
     private WebElement titleInput;
 
-    @FindBy(id = "author")
-    private WebElement authorInput;
-
-    @FindBy(id = "genre")
-    private WebElement genreSelect;
-
     @Step("Enter the name of book")
     public void enterTitle(String title) {
         titleInput.sendKeys(title);
     }
+
+    @FindBy(id = "author")
+    private WebElement authorInput;
 
     @Step("Enter the author of book")
     public void enterAuthor(String author) {
         authorInput.sendKeys(author);
     }
 
+    @FindBy(id = "genre")
+    private WebElement genreSelect;
+
     @Step("Choose a book genre")
     public void selectGenre(String genre) {
         Select select = new Select(genreSelect);
-        select.selectByVisibleText(genre);
+        try {
+            select.selectByVisibleText(genre);
+        } catch (Exception ex) {
+            throw new RuntimeException("The genre " + genre + " is missing \n" + ex);
+        }
     }
 }

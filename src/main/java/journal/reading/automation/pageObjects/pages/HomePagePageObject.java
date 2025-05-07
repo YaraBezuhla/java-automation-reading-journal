@@ -20,13 +20,12 @@ public class HomePagePageObject {
     @FindBy(xpath = "//div[@data-test='top-books']/h2")
     private WebElement topBooksBlockTitle;
 
-    @FindBy(xpath = "//div[@data-test='top-authors']/h2")
-    private WebElement topAuthorsBlockTitle;
-
     @Step("Get the name of the block with top books")
     public String getTopBooksBlockTitle() {
         return topBooksBlockTitle.getText();
     }
+    @FindBy(xpath = "//div[@data-test='top-authors']/h2")
+    private WebElement topAuthorsBlockTitle;
 
     @Step("Get the name of the block with top authors")
     public String getTopAuthorsBlockTitle() {
@@ -35,7 +34,7 @@ public class HomePagePageObject {
 
     @Step("Check the block name")
     public void checkBlockTitle(String titleOnWebsite, String expectedTitle) {
-        Assert.assertEquals(titleOnWebsite, expectedTitle, "Тайтл на сайті не співпадає з очікуваним тайтлом");
+        Assert.assertEquals(titleOnWebsite, expectedTitle, "The title on the site does not match the expected title");
     }
 
     @FindBy(xpath = "//div[@data-test='author-card']/h3")

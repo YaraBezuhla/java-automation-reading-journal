@@ -15,21 +15,21 @@ public class AuthPageObject {
     @FindBy(id = "username")
     private WebElement inputLogin;
 
-    @FindBy(id = "password")
-    private WebElement inputPassword;
-
-    @FindBy(className = "login-btn")
-    private WebElement loginBtn;
-
     @Step("Input login")
     public void inputLoginText(String login) {
         inputLogin.sendKeys(login);
     }
 
+    @FindBy(id = "password")
+    private WebElement inputPassword;
+
     @Step("Input Password")
     public void inputPasswordText(String password) {
         inputPassword.sendKeys(password);
     }
+
+    @FindBy(className = "login-btn")
+    private WebElement loginBtn;
 
     @Step("Login btn click")
     public void loginBtnClick() {

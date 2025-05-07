@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class SearchPageTests extends BaseTest {
 
     @Test
-    @Description("Перевірка пошуку книги по назві")
+    @Description("Check book search by title")
     public void checkSearchTitle() {
         BookProcessor bookProcessor = new BookProcessor();
 
@@ -20,7 +20,7 @@ public class SearchPageTests extends BaseTest {
     }
 
     @Test
-    @Description("Перевірка пошуку книги/книг по автору")
+    @Description("Check the search for a book/books by author")
     public void checkSearchAuthor() {
         BookProcessor bookProcessor = new BookProcessor();
 
@@ -32,7 +32,7 @@ public class SearchPageTests extends BaseTest {
     }
 
     @Test
-    @Description("Перевірка валідації при відсутності книги")
+    @Description("Validation check in the absence of a book")
     public void checkValidationNoResult() {
         String expectedText = "Інтеррнат";
 

@@ -53,5 +53,4 @@ public class PageObjectsFacade {
     public DeleteButtonWithList deleteButtonWithList() {
         return new DeleteButtonWithList(driver, wait);
     }
-
 }

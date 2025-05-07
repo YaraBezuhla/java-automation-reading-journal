@@ -33,7 +33,7 @@ public class SearchPagePageObject {
     @Step("Check that the book is found by name")
     public void assertBookFoundByName(String expectedTitle) {
         String titleDisplayed = wait.waitForVisibility(nameBook).getText();
-        Assert.assertEquals(titleDisplayed, expectedTitle, "Назва книги не вірна");
+        Assert.assertEquals(titleDisplayed, expectedTitle, "The title of the book is incorrect");
     }
 
     @FindBy(xpath = "//p[@data-test='search-book-author']")
@@ -43,7 +43,7 @@ public class SearchPagePageObject {
     public void assertBookFoundByAuthor(String expectedAuthor) {
         Assert.assertTrue(
                 authorBook.stream().allMatch(element -> element.getText().equals(expectedAuthor)),
-                "Не всі книги належать автору '" + expectedAuthor + "'."
+                "Not all books belong to the author " + expectedAuthor + "'."
         );
     }
 
@@ -53,8 +53,8 @@ public class SearchPagePageObject {
     @Step("Check that validation appears when there are no search results")
     public void assertNoResultsValidation(String inputText) {
         String validationDisplayed = noResultsValidation.getText();
-        String validationExpected = "Нічого не знайдено за запитом \"" + inputText + "\"";
+        String validationExpected = "Nothing found for the query \"" + inputText + "\"";
 
-        Assert.assertEquals(validationDisplayed, validationExpected, "Проблеми з валідацією");
+        Assert.assertEquals(validationDisplayed, validationExpected, "Problems with validation");
     }
 }

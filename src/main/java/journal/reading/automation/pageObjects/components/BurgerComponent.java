@@ -18,13 +18,13 @@ public class BurgerComponent {
     @FindBy(xpath = "//a[@data-test='read-books-link']")
     private WebElement readBooksList;
 
-    @FindBy(xpath = "//a[@data-test='wishlist-link']")
-    private WebElement wishList;
-
     @Step("Click on readBooksList")
     public void clickReadBooksList() {
         wait.waitForVisibility(readBooksList).click();
     }
+
+    @FindBy(xpath = "//a[@data-test='wishlist-link']")
+    private WebElement wishList;
 
     @Step("Click on wishList")
     public void clickWishList() {

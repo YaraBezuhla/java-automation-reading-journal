@@ -11,12 +11,12 @@ import java.util.ArrayList;
 public class GetDataWithMongoDB {
     ConnectToDB connectToDB = new ConnectToDB();
 
-    @Step("Отримати всі назви книг з бази данних")
+    @Step("Get all book titles from the database")
     public ArrayList<String> getBookTitlesFromDatabase() {
         ArrayList<String> titles = new ArrayList<>();
         MongoCollection<Document> booksCollection = connectToDB.connectToMongoDB("books");
 
-        FindIterable<Document> iterable = booksCollection.find();  // Отримання всіх документів з колекції books
+        FindIterable<Document> iterable = booksCollection.find();
         for (Document doc : iterable) {
             String title = doc.getString("title");
             boolean top = doc.getBoolean("top");
@@ -27,7 +27,7 @@ public class GetDataWithMongoDB {
         return titles;
     }
 
-    @Step("Отримати назви книг одного автора")
+    @Step("Get titles of books by the same author")
     public ArrayList<String> getBookTitlesOneAuthorFromDatabase(String authorName) {
         ArrayList<String> bookTitles = new ArrayList<>();
 
@@ -38,7 +38,7 @@ public class GetDataWithMongoDB {
             // 2. Знаходимо автора за іменем
             Document authorDoc = authorsCollection.find(new Document("name", authorName)).first();
             if (authorDoc == null) {
-                throw new RuntimeException("Автор не знайдений: " + authorName);
+                throw new RuntimeException("Author not found: " + authorName);
             }
 
             // 3. Отримуємо ObjectId автора
@@ -59,7 +59,7 @@ public class GetDataWithMongoDB {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Помилка під час отримання книг автора: " + authorName, e);
+            throw new RuntimeException("Error while receiving the author's books: " + authorName, e);
         }
 
         return bookTitles;
