@@ -23,9 +23,7 @@ public class DeleteButtonWithList {
         try {
             wait.waitForClickable(deleteBtn).click();
         } catch (Exception ex) {
-            throw new RuntimeException("В списку відсутня книга");
+            throw new RuntimeException("The book is missing from the list");
         }
-
-
     }
 }

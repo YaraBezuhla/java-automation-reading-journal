@@ -11,7 +11,6 @@ public class ConnectToDB {
     public MongoCollection<Document> connectToMongoDB(String nameCollection){
         mongoClient = MongoClients.create(ConfigReader.get("mongodb.uri"));
         database = mongoClient.getDatabase(ConfigReader.get("mongodb.database"));
-        // Отримання колекції
         return database.getCollection(nameCollection);
     }
 }

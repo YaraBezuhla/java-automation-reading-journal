@@ -4,7 +4,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
-import journal.reading.automation.services.database.DataManipulation;
+import journal.reading.automation.testData.providers.DataManipulation;
 import journal.reading.automation.services.database.GetDataWithMongoDB;
 import journal.reading.automation.core.BaseTest;
 import org.testng.annotations.*;
@@ -23,7 +23,7 @@ public class HomePageTests extends BaseTest {
 
         ArrayList<String> dbTitles = getDataWithMongoDB.getBookTitlesFromDatabase();
         ArrayList<String> webTitles = pages.bookTitlesComponent().getBookTitlesOnWebsite();
-        dataManipulation.compareDataFromWebsiteAndDatabase(dbTitles,webTitles);
+        dataManipulation.compareTwoArrays(dbTitles,webTitles);
     }
 
     @Test

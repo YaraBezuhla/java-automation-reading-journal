@@ -12,7 +12,7 @@ import java.util.Map;
 public class AddBookTests {
 
     @Test
-    @Description("Перевірка успішного додавання книги через апі")
+    @Description("Checking the successful addition of a book via api")
     public void successfulAddingBookTest() {
         ApiMethods apiMethods = new ApiMethods();
         List<Map<String, Object>> books = BookDataProvider.getBooks();
@@ -20,7 +20,7 @@ public class AddBookTests {
     }
 
     @Test
-    @Description("Перевірка успішного додавання книги через апі")
+    @Description("Checking the unsuccessful addition of a book via api")
     public void unsuccessfulAddingDuplicateBookTest() {
         ApiMethods apiMethods = new ApiMethods();
         List<Map<String, Object>> books = BookDataProvider.getBooks();

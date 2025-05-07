@@ -15,13 +15,14 @@ public class BookPageObject {
     @FindBy(xpath = "//button[@data-test='add-to-wishlist']")
     private WebElement wishListBtn;
 
-    @FindBy(xpath = "//button[@data-test='add-to-read']")
-    private WebElement readListBtn;
 
     @Step("Click on add to wishlist")
     public void clickWishListBtn() {
         wishListBtn.click();
     }
+
+    @FindBy(xpath = "//button[@data-test='add-to-read']")
+    private WebElement readListBtn;
 
     @Step("Click on add to read list")
     public void clickReadListBtn() {

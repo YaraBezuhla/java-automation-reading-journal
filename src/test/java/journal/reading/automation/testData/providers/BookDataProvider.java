@@ -15,25 +15,23 @@ public class BookDataProvider {
     public static List<Map<String, Object>> getBooks() {
         try (InputStream is = BookDataProvider.class.getClassLoader().getResourceAsStream("testData/books.json")) {
             if (is == null) {
-                throw new RuntimeException("Не вдалося знайти файл books.json у ресурсах.");
+                throw new RuntimeException("The books.json file could not be found in the resources");
             }
             return objectMapper.readValue(is, new TypeReference<List<Map<String, Object>>>() {});
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Не вдалося зчитати books.json", e);
+            throw new RuntimeException("Failed to read books.json", e);
         }
     }
 
-    // Отримання певної книги за індексом
     public static Map<String, Object> getBook(int index) {
         List<Map<String, Object>> books = getBooks();
         if (index < 0 || index >= books.size()) {
-            throw new IllegalArgumentException("Неправильний індекс книги: " + index);
+            throw new IllegalArgumentException("Incorrect book index: " + index);
         }
         return books.get(index);
     }
 
-    // Отримання назв усіх книг
     public static List<String> getBookTitles() {
         List<String> titles = new ArrayList<>();
         try {
@@ -46,7 +44,7 @@ public class BookDataProvider {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("Не вдалося зчитати книги з файлу", e);
+            throw new RuntimeException("Unable to read books from a file: ", e);
         }
         return titles;
     }
