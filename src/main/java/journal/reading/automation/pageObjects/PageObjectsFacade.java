@@ -1,6 +1,6 @@
 package journal.reading.automation.pageObjects;
 
-import journal.reading.automation.config.utilities.WaitService;
+import journal.reading.automation.core.utilities.WaitService;
 import journal.reading.automation.pageObjects.components.BookTitlesComponent;
 import journal.reading.automation.pageObjects.components.BurgerComponent;
 import journal.reading.automation.pageObjects.components.DeleteButtonWithList;

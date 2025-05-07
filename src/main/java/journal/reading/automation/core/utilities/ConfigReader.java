@@ -1,4 +1,4 @@
-package journal.reading.automation.config.utilities;
+package journal.reading.automation.core.utilities;
 
 import java.io.IOException;
 import java.io.InputStream;

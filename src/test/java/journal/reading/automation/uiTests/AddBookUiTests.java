@@ -1,10 +1,10 @@
 package journal.reading.automation.uiTests;
 
-import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.core.BaseTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class AddBookUiTests extends LaunchSettings {
+public class AddBookUiTests extends BaseTest {
 
     @DataProvider(name = "bookData")
     public Object[][] bookDataProvider() {

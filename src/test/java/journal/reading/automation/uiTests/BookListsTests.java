@@ -1,11 +1,11 @@
 package journal.reading.automation.uiTests;
 
 import io.qameta.allure.Description;
-import journal.reading.automation.config.utilities.LaunchSettings;
+import journal.reading.automation.core.BaseTest;
 import journal.reading.automation.testData.providers.CredentialsProvider;
 import org.testng.annotations.Test;
 
-public class BookListsTests extends LaunchSettings {
+public class BookListsTests extends BaseTest {
 
     @Test
     @Description("Successfully add the book to your read list")
