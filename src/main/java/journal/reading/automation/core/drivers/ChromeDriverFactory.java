@@ -8,7 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class ChromeDriverFactory implements Driver {
 
     @Override
-    public WebDriver CreateDriver(MutableCapabilities options) {
+    public WebDriver createDriver(MutableCapabilities options) {
         return new ChromeDriver((ChromeOptions) options);
     }
 

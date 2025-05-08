@@ -11,7 +11,6 @@ public class DriverFactory {
         Driver driverFactory;
         BrowserOptionsProvider optionsProvider;
 
-        // Вибір фабрики та провайдера опцій залежно від браузера
         switch (browserName.toLowerCase()) {
             case "chrome":
                 driverFactory = new ChromeDriverFactory();
@@ -25,8 +24,7 @@ public class DriverFactory {
                 throw new IllegalArgumentException("Unsupported browser: " + browserName);
         }
 
-        // Створення драйвера за допомогою фабрики та налаштувань опцій
-        WebDriver driver = driverFactory.CreateDriver(optionsProvider.getOptions());
+        WebDriver driver = driverFactory.createDriver(optionsProvider.getOptions());
         return driver;
     }
 }

@@ -5,5 +5,5 @@ import org.openqa.selenium.WebDriver;
 
 public interface Driver {
 
-    WebDriver CreateDriver(MutableCapabilities options);
+    WebDriver createDriver(MutableCapabilities options);
 }

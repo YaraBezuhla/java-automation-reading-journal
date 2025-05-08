@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 public class FirefoxDriverFactory implements Driver {
 
     @Override
-    public WebDriver CreateDriver(MutableCapabilities options) {
+    public WebDriver createDriver(MutableCapabilities options) {
         return new FirefoxDriver((FirefoxOptions) options);
     }
 }
